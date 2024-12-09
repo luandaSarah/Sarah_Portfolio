@@ -3,15 +3,17 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --tertiaryColor: #1F0822;
+  --whiteColor: #ECCAD9;
+  --primaryColor: #E77664;
+  --secondaryColor: #F9CE75;
+  --plum: #814881;
+  --deepMauve: #D180C8;
+  --linearGradient: #65174B, #E7CA26, #9355A8;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+body {
+  background-image: radial-gradient(circle, rgb(231, 38, 212) 0%, rgb(21, 60, 145) 100%);
 }
 
 @layer base {

@@ -15,9 +15,12 @@ export default function RootLayout({ children }) {
         </style>
         <script src="https://kit.fontawesome.com/5c9555d31b.js" crossorigin="anonymous"></script>
       </head>
-      <body className="w-screen h-screen grid grid-cols-5 grid-rows-4">
+      <body className="" >
+        <main className="pt-10 px-10 bg-black bg-opacity-50 w-screen h-screen grid grid-cols-5 grid-rows-6 gap-x-4">
         <Navbar />
         {children}
+        </main>
+        
       </body>
     </html>
   );
