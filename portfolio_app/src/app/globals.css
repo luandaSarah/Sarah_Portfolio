@@ -15,6 +15,9 @@
 body {
   background-image: radial-gradient(circle, rgb(231, 38, 212) 0%, rgb(21, 60, 145) 100%);
 }
+/* #mainTitleContainer{
+  background-image: url("assets/img/flower-bg.jpg");
+} */
 
 @layer base {
   * {
