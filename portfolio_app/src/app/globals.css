@@ -3,17 +3,15 @@
 @tailwind utilities;
 
 :root {
-  --tertiaryColor: #1F0822;
-  --whiteColor: #ECCAD9;
-  --primaryColor: #E77664;
-  --secondaryColor: #F9CE75;
-  --plum: #814881;
-  --deepMauve: #D180C8;
-  --linearGradient: #65174B, #E7CA26, #9355A8;
+  --blackColor: #000000;
+  --whiteColor: #ffffff;
+  --primaryColor: #F4A3A2;
+  --secondaryColor: #F9D5A5;
+  --bgColor: #EEE6D9;
 }
 
 body {
-  background-image: radial-gradient(circle, rgb(231, 38, 212) 0%, rgb(21, 60, 145) 100%);
+  /* background-image: radial-gradient(circle, rgb(231, 38, 212) , rgb(21, 60, 145) ); */
 }
 /* #mainTitleContainer{
   background-image: url("assets/img/flower-bg.jpg");
@@ -21,7 +19,7 @@ body {
 
 @layer base {
   * {
-    font-family: "Outfit", sans-serif;
+    font-family: "Pixelify Sans", sans-serif;
   }
 }
 
