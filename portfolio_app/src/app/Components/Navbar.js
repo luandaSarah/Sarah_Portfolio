@@ -33,7 +33,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="pt-20 rounded-3xl col-start-1 col-end-2 row-start-1 row-end-6 flex justify-center text-xl">
+    <nav className="pt-4 rounded-3xl col-start-1 col-end-2 row-start-2 row-end-8 flex justify-center text-xl">
       <div className="flex flex-col  gap-8  align-center  text-blackColor">
         <Link
           href={"./"}
