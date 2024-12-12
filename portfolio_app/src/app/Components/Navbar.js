@@ -33,7 +33,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="pt-4 rounded-3xl col-start-1 col-end-2 row-start-2 row-end-8 flex justify-center text-xl">
+    <nav className="pt-4 col-start-1 col-end-3 row-start-2 row-end-8 flex justify-center text-xl">
       <div className="flex flex-col  gap-8  align-center  text-blackColor">
         <Link
           href={"./"}
@@ -51,7 +51,7 @@ export default function Navbar() {
           <p>A propos</p>
         </Link>
         <Link
-          href={"./project"}
+          href={"./projects"}
           className="flex  gap-2 items-center  flex flex-col hover:text-primaryColor"
           onMouseEnter={ProjectsHoverHandlerIn}
           onMouseLeave={ProjectsHoverHandlerOut}

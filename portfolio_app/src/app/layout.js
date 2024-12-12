@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
         {/* <script src="https://kit.fontawesome.com/5c9555d31b.js" crossOrigin="anonymous"></script> */}
       </head>
       <body className="bg-bgColor" >
-        <main className="pt-10 px-4 w-screen h-screen grid grid-cols-5 grid-rows-8 gap-x-4">
+        <main className=" px-4 w-screen h-screen grid grid-cols-10 grid-rows-8 gap-x-4">
         <Navbar />
         {children}
         </main>
