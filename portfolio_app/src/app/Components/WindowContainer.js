@@ -62,7 +62,7 @@ const [pageLogo, setPageLogo] = useState(["/star.png", "Logo de page par défaut
               </div>
 
               <div className="pixel-corners px-4 h-3/4 w-1/3 self-end flex items-center gap-4">
-              <Image src={pageLogo[0]}  height={24} width={24} alt={pageLogo[1]}></Image>
+              <Image src={pageLogo[0]}  height={"30"} width={"30"} alt={pageLogo[1]}></Image>
               <h1 className="text-blackColor">{mainTitle}</h1>
             </div>
             </div>
