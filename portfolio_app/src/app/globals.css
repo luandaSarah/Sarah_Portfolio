@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --blackColor: #000000;
-  --whiteColor: #ffffff;
-  --primaryColor: #F4A3A2;
-  --secondaryColor: #F9D5A5;
-  --bgColor: #EEE6D9;
+  --blackColor: #543324;
+  --whiteColor: #FEFEFE;
+  --primaryColor: #EBAF58;
+  --secondaryColor: #99532D;
+  --bgColor: #EDD3BA;
 }
 
 body {

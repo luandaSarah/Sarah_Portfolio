@@ -44,8 +44,8 @@ export default function Navbar() {
           <Image
             id="meLogo"
             src={meLogo}
-            width={50}
-            height={50}
+            width={100}
+            height={100}
             alt="logo a propos"
           ></Image>
           <p>A propos</p>
