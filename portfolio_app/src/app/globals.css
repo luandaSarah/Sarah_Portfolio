@@ -2,20 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --blackColor: #543324;
-  --whiteColor: #FEFEFE;
-  --primaryColor: #EBAF58;
-  --secondaryColor: #99532D;
-  --bgColor: #EDD3BA;
-}
-
-body {
-  /* background-image: radial-gradient(circle, rgb(231, 38, 212) , rgb(21, 60, 145) ); */
-}
-/* #mainTitleContainer{
-  background-image: url("assets/img/flower-bg.jpg");
-} */
 
 @layer base {
   * {
@@ -25,3 +11,112 @@ body {
 
 
 
+
+
+:root {
+  --blackColor: #543324;
+  --whiteColor: #FEFEFE;
+  --primaryColor: #EBAF58;
+  --secondaryColor: #99532D;
+  --bgColor: #EDD3BA;
+  --tertiaryColor: #F6E9DD;
+}
+
+body {
+  /* background-image: radial-gradient(circle, rgb(231, 38, 212) , rgb(21, 60, 145) ); */
+}
+/* #mainTitleContainer{
+  background-image: url("assets/img/flower-bg.jpg");
+} */
+
+
+/*/////////////// Animation ///////////////////*/
+
+.softskills-bubble {
+
+  -webkit-animation: jello-horizontal 0.9s both;
+  animation: jello-horizontal 0.9s both;
+}
+
+@-webkit-keyframes jello-horizontal {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+  30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+            transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+            transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+            transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+            transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+            transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes jello-horizontal {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+  30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+            transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+            transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+            transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+            transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+            transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+}
+
+.sarahLuanda {
+  overflow: hidden; 
+  border-right: .1em solid var(--primaryColor); 
+  white-space: nowrap; 
+  margin: 0 auto; 
+  letter-spacing: .15em; 
+  animation: 
+    typing 2s steps(40, end),
+    blink-caret 1s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: var(--primaryColor); }
+}

@@ -14,6 +14,7 @@ module.exports = {
         secondaryColor: "var(--secondaryColor)",
         bgColor: "var(--bgColor)",
         blackColor: "var(--blackColor)",
+        tertiaryColor: "var(--tertiaryColor)",
       },
     },
   },

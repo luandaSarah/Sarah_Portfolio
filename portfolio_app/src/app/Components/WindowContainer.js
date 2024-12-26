@@ -68,7 +68,7 @@ const [pageLogo, setPageLogo] = useState(["/star.png", "Logo de page par défaut
             </div>
           </div>
 
-          <div className="contentContainer row-start-2 row-end-9 col-start-1 col-end-5 h-full w-full p-6 overflow-auto  inset-0 h-full w-full bg-whiteColor bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]">
+          <div className="contentContainer row-start-2 row-end-9 col-start-1 col-end-5 h-full w-full py-6 px-32 overflow-auto  inset-0 h-full w-full bg-tertiaryColor bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]">
           <Content/>
           </div>
         </div>
