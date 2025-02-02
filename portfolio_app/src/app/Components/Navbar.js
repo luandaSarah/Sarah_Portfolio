@@ -5,9 +5,9 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
 export default function Navbar() {
-  const [meLogo, setMeLogo] = useState("/me.png");
-  const [projectsLogo, setProjectsLogo] = useState("/projects.png");
-  const [contactLogo, setContactLogo] = useState("/contact.png");
+  const [meLogo, setMeLogo] = useState("/icones/me.png");
+  const [projectsLogo, setProjectsLogo] = useState("/icones/projects.png");
+  const [contactLogo, setContactLogo] = useState("/icones/contact.png");
 
 //   const MeHoverHandlerIn = () => {
 //     setMeLogo("/me-pink.png");
@@ -36,7 +36,7 @@ export default function Navbar() {
     <nav className="pt-4 col-start-1 col-end-3 row-start-2 row-end-8 flex justify-center text-xl">
       <div className="flex flex-col  gap-8  align-center  text-blackColor">
         <Link
-          href={"./"}
+          href={"/"}
           className=" flex  gap-2 items-center flex flex-col font-semibold hover:text-primaryColor"
           // onMouseEnter={MeHoverHandlerIn}
           // onMouseLeave={MeHoverHandlerOut}
@@ -51,7 +51,7 @@ export default function Navbar() {
           <p>A propos</p>
         </Link>
         <Link
-          href={"./projects"}
+          href={"/projects"}
           className="flex  gap-2 items-center  flex flex-col font-semibold hover:text-primaryColor"
           // onMouseEnter={ProjectsHoverHandlerIn}
           // onMouseLeave={ProjectsHoverHandlerOut}
@@ -66,12 +66,12 @@ export default function Navbar() {
           <p>Mes Projets</p>
         </Link>
         <Link
-          href={"./contact"}
+          href={"/contact"}
           className="flex  gap-2 items-center  flex flex-col font-semibold hover:text-primaryColor "
           // onMouseEnter={contactHoverHandlerIn}
           // onMouseLeave={contactHoverHandlerOut}
         >
-          {" "}
+    
           <Image
             id="contactLogo"
             src={contactLogo}

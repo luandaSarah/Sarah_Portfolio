@@ -7,6 +7,16 @@ export default function WindowContainer({content : Content}) {
 let leftArrow = "<";
 let rightArrow = ">";
 
+let handleBack= () => {
+    
+  window.history.back();
+  
+ };
+
+ let handleForward = () => {
+   window.history.forward();
+ };
+
 const [mainTitle, setMainTitle] = useState("");
 
 const [pageLogo, setPageLogo] = useState(["/star.png", "Logo de page par défaut" ]);
@@ -17,7 +27,7 @@ const [pageLogo, setPageLogo] = useState(["/star.png", "Logo de page par défaut
         var fullPathName = window.location.pathname;
         var splitPathName = fullPathName.split("/")[1];
         console.log(splitPathName);
-        setPageLogo([`/${splitPathName}.png`,`"Logo de la pagepage ${splitPathName}`]);
+        setPageLogo([`/icones/${splitPathName}.png`,`"Logo de la pagepage ${splitPathName}`]);
         // console.log(splitPathName);
         if (splitPathName == "") {
             setMainTitle("A PROPOS");
@@ -47,8 +57,8 @@ const [pageLogo, setPageLogo] = useState(["/star.png", "Logo de page par défaut
               </div>
 
               <div className="flex gap-5 text-3xl font-medium text-blackColor">
-                <p>{leftArrow}</p>
-                <p>{rightArrow}</p>
+              <p className="hover:cursor-pointer hover:text-primaryColor" onClick={handleBack}>{leftArrow}</p>
+              <p className="hover:cursor-pointer hover:text-primaryColor" onClick={handleForward}>{rightArrow}</p>
               </div>
 
               <div className="windowContainer w-3/4 h-12 col-start-2 col-end-3">
