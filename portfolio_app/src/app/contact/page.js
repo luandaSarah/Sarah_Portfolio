@@ -60,8 +60,8 @@ export default function Contact() {
   
       return (
         <>  <div className="contactTitle-container  flex flex-col items-center text-blackColor text-center gap-2 pb-2">
-        <h1 className=" text-3xl w-2/4 font-semibold   ">Me contacter</h1>
-        <p>
+        <h1 className=" text-3xl w-2/4 font-semibold  pb-6 ">Me contacter</h1>
+        <p className="mx-3 pb-9 ">
           Vous souhaitez travailler avec moi ou bien vous avez des questions ?
           <br />
           Pas de soucis, remplissez le formulaire ci-dessous et je vous
@@ -74,10 +74,10 @@ export default function Contact() {
           id="form"
           ref={form}
           onSubmit={sendEmail}
-          className="flex flex-col gap-5 "
+          className="flex flex-col gap-5 w-full px-3 lg:px-0 "
         >
-          <div className="nameMail-container flex  justify-center">
-            <div className=" windowContainer  w-1/3 h-14">
+          <div className="nameMail-container flex flex-col lg:flex-row gap-5 lg:gap-0 justify-center">
+            <div className=" windowContainer w-full lg:w-2/3 h-14 ">
               <input
                 type="text"
                 id="user_fullname"
@@ -86,7 +86,7 @@ export default function Contact() {
                 className=" w-full h-full box-border placeholder:text-blackColor placeholder:opacity-50  focus:outline-none px-5 text-blackColor"
               />
             </div>
-            <div className=" windowContainer  w-1/3 h-14">
+            <div className=" windowContainer w-full lg:w-2/3 h-14">
               <input
                 type="text"
                 id="user_mail"
@@ -98,7 +98,7 @@ export default function Contact() {
           </div>
 
           <div className="subjectMessage-container flex flex-col gap-5 items-center">
-            <div className=" windowContainer  w-2/3 h-14">
+            <div className=" windowContainer  w-full h-14">
               <input
                 type="text"
                 id="mail_subject"
@@ -107,7 +107,7 @@ export default function Contact() {
                 className=" w-full h-full box-border placeholder:text-blackColor placeholder:opacity-50  focus:outline-none px-5 text-blackColor"
               />
             </div>
-            <div className=" windowContainer w-2/3 h-52">
+            <div className=" windowContainer w-full  h-52">
               <textarea
                 type="text"
                 id="message"

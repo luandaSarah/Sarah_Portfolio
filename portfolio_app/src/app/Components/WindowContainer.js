@@ -46,10 +46,10 @@ const [pageLogo, setPageLogo] = useState(["/star.png", "Logo de page par défaut
  
   return (
     <>
-      <div className="windowContainer bg-bgColor relative z-10 col-start-3 col-end-10 row-start-2 row-end-8  ">
-        <div className="windowContainer-grid w-full h-full grid grid-rows-8 grid-cols-4">
-          <div className="windowContainer-topContainer col-start-1 col-end-5 row-start-1 row-end-2 border-blackColor border-b-4">
-            <div className="windowContainer-topContainer-elementsBox px-5 h-full w-full flex items-center gap-5">
+      <div className="windowContainer p-x fullWindow bg-bgColor w-full h-full relative z-10 col-start-1 col-end-11 lg:col-start-3 lg:col-end-10 lg:row-start-2 lg:row-end-8 row-start-1 row-end-9 ">
+        <div className="windowContainer-grid w-full h-full grid lg:grid-rows-8 lg:grid-cols-4">
+          <div className="windowContainer-topContainer hidden lg:block col-start-1 col-end-5 row-start-1 row-end-2 border-blackColor border-b-4">
+            <div className="windowContainer-topContainer-elementsBox  px-5 h-full w-full flex items-center gap-5">
               <div className="flex gap-2 text-3xl text-blackColor">
                 <p>o</p>
                 <p>o</p>
@@ -67,24 +67,24 @@ const [pageLogo, setPageLogo] = useState(["/star.png", "Logo de page par défaut
                   type="text"
                   name="searchBar"
                   id="searchBar"
-                  placeholder="Rechercher"
+                  placeholder="Rechercher"  
                 />
               </div>
 
-              <div className="pixel-corners px-4 h-3/4 w-1/3 self-end flex items-center gap-4">
-              <Image src={pageLogo[0]}  height={"30"} width={"30"} alt={pageLogo[1]}></Image>
+              <div className="pixel-corners px-4 h-3/4 w-1/3  self-end flex items-center gap-4">
+              <Image src={pageLogo[0]}  height={"30"} width={"30"} alt={pageLogo[1]} className="sm:hidden xl:block"></Image>
               <h1 className="text-blackColor">{mainTitle}</h1>
             </div>
             </div>
           </div>
 
-          <div className="contentContainer row-start-2 row-end-9 col-start-1 col-end-5 h-full w-full py-6 px-32 overflow-auto  inset-0 h-full w-full bg-tertiaryColor bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]">
+          <div className="contentContainer  mb-28 lg:mb-0 flex flex-col py-10  items-center row-start-1 lg:row-start-2 row-end-9 col-start-1 col-end-5 h-full w-full lg:py-6 lg:px-32 lg:overflow-auto  lg:inset-0 h-full w-full bg-tertiaryColor bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]">
           <Content/>
           </div>
         </div>
       </div>
 
-      <div className="windowContainer absolute z-0 bg-blackColor top-5 left-5 col-start-3 col-end-10 row-start-2 row-end-8"></div>
+      <div className="windowContainer shadowContainer absolute z-0 bg-blackColor top-5 left-5 col-start-3 col-end-10 row-start-2 row-end-8 hidden lg:block"></div>
     </>
   );
 }

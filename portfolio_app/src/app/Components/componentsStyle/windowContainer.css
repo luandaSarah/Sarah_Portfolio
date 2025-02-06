@@ -341,3 +341,25 @@
 .pixel-thumbnails::after {
   margin: -4px;
 }
+
+
+
+@media only screen and (max-width: 1024px) {
+
+  .shadowContainer {
+    display: none;
+  }
+
+  .fullWindow {
+
+    border:none;
+    width: 100%;
+    height: 100%;
+  }
+
+  .navbar {
+    position: sticky;
+  }
+  
+}
+
