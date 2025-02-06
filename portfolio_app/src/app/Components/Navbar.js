@@ -34,7 +34,7 @@ export default function Navbar() {
 
   return (
     <nav className=" lg:pb-4 col-start-1 sticky bottom-0 z-30 h-full flex items-end justify-center  lg:z-0 lg:static   col-end-11  row-start-8 row-end-9 lg:col-start-1 lg:col-end-3 lg:row-start-2 lg:row-end-8 flex  justify-center text-xl">
-    <div className="  py-8   lg:py-0 h-2/3 lg:h-full w-2/3 lg:w-full bg-bgColor navbar windowContainer   text-xl">
+    <div className="  py-8   lg:py-0 h-2/3 lg:h-full w-2/3 lg:w-full bg-bgColor navbar    text-xl">
       <div className="flex flex-row lg:flex-col lg:gap-8 md:px-10 lg:px-0 w-full h-full items-center lg:justify-center justify-around  text-blackColor">
         <Link
           href={"/"}
