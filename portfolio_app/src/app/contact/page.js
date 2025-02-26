@@ -61,7 +61,7 @@ export default function Contact() {
       return (
         <>  <div className="contactTitle-container  flex flex-col items-center text-blackColor text-center gap-2 pb-2">
         <h1 className=" text-3xl w-2/4 font-semibold  pb-6 ">Me contacter</h1>
-        <p className="mx-3 pb-9 ">
+        <p className="mx-3 pb-9 text-lg ">
           Vous souhaitez travailler avec moi ou bien vous avez des questions ?
           <br />
           Pas de soucis, remplissez le formulaire ci-dessous et je vous
@@ -136,9 +136,10 @@ export default function Contact() {
         <div className="contactTitle-container  flex flex-col text-center text-blackColor justify-center items-center gap-6">
          
          <Image 
+         loading="lazy"
           width={200}
             height={200}
-            src={"/icones/sent.png"}
+            src={"/icones/sent.webp"}
             alt={"Avion en papier, icone indiquant l'envoie"}
 >
           </Image>
@@ -146,7 +147,7 @@ export default function Contact() {
           <h1 className=" text-3xl w-2/4 font-semibold  ">
             Merci pour votre message ! 
           </h1>
-          <p>
+          <p className="text-lg ">
             Votre message a bien été reçu, je vous repondrez dans les plus bref
             délais.
             

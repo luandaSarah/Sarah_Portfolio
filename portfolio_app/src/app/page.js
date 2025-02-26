@@ -11,7 +11,7 @@ export default function Home() {
           <div className="ppSoftskills-container  w-60 h-72 relative  ">
             <Image
               id="pp"
-              src={"/profil-picture.png"}
+              src={"/profil-picture.webp"}
               height={400}
               width={400}
               alt={"Photo de Sarah"}
@@ -49,29 +49,30 @@ export default function Home() {
             <h2 className="text-2xl mt-20 font-semibold bg-bgColor rounded-xl ">
               Développeuse Full Stack
             </h2>
-
-            
           </div>
 
-          <p className="text-blackColor text-center text-lg mx-3 pt-2 mt-9">
-            Actuellement étudiante en développement web, je suis passionnée par
-            l'informatique et l'univers numérique. Curieuse et créative, j'aime
-            concevoir des projets uniques en ajoutant ma touche personnelle de
-            couleurs et d'originalité. À travers mes projets, je cherche à
-            allier technicité et esthétique pour offrir des expériences web
-            captivantes et fonctionnelles.
+          <h3 className="text-blackColor text-center text-xl mx-3 pt-2 mt-9">
+            Bienvenue dans mon monde !
+          </h3>
+          <p className="text-blackColor text-center text-lg mx-3 mt-4">
+            Je suis une jeune développeuse junior de 23 ans, passionnée par les
+            nouvelles technologies et le développement web. Dotée d'une grande
+            créativité, j'aime apporter ma touche personnelle à chacun de mes
+            projets.
+            <br />
+            N'hésitez pas à me contacter si mon profil vous intéresse !
           </p>
         </div>
 
-        <div className="flex flex-col items-center  mt-9 ">
-          <h2 className="text-2xl  text-center  mt-9 px-9 font-semibold bg-bgColor rounded-xl text-blackColor">
-            Mes compétences techniques
-          </h2>
-        </div>
+        <h2 className="text-2xl  text-center  mt-9 px-9 font-semibold bg-bgColor rounded-xl text-blackColor">
+          Mes compétences techniques
+        </h2>
 
         <div className="hardSkills-container flex w-2/3 lg:w-full flex-col  lg:flex-row justify-around mt-12">
           <div className="backSkills">
-            <h3 className="text-lg text-center mb-4 text-blackColor semibold">Back-End</h3>
+            <h3 className="text-lg text-center mb-4 text-blackColor semibold">
+              Back-End
+            </h3>
             <ul className="skillsList  grid     2xl:grid-cols-3 xl:grid-cols-2 gap-3 mb-9">
               <li className="hardSkills-Bubble text-center bg-blackColor text-whiteColor px-2 py-3 lg:py-0  rounded-2xl">
                 PHP
@@ -100,7 +101,9 @@ export default function Home() {
             </ul>
           </div>
           <div className="frontSkills">
-            <h3 className="text-lg text-center mb-4 text-blackColor ">Front-End</h3>
+            <h3 className="text-lg text-center mb-4 text-blackColor ">
+              Front-End
+            </h3>
             <ul className="skillsList grid 2xl:grid-cols-3 xl:grid-cols-2 gap-3">
               <li className="hardSkills-Bubble text-center bg-blackColor text-whiteColor px-2 py-3 lg:py-0  rounded-2xl">
                 JAVASCRIPT
@@ -132,21 +135,6 @@ export default function Home() {
             </ul>
           </div>
         </div>
-
-
-        <div className="flex flex-col items-center  mt-9 ">
-
-        <h2 className="text-2xl  mt-9 px-9 font-semibold bg-bgColor rounded-xl text-blackColor">
-             Informations annexes sur moi
-          </h2>
-
-          
-
-        </div>
-        
-        
-
-
       </>
     );
   };

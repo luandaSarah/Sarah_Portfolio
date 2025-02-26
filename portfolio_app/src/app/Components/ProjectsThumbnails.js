@@ -1,23 +1,21 @@
+'use client'
+
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
-import ProjectInfosContainer from "./ProjectInfosContainer";
 
 export default function ProjectsThumbnails({
   thumbnail: thumbnail,
   projectname: projectname,
-  technologies:  technologies = []
-}) {
-  let thumbnailId = projectname;
-  if (projectname.includes(" ")) {
-    thumbnailId = projectname.split(" ").join("-");
+  technologies:  technologies,
+  thumbnailId: thumbnailId
 
-  }
+}) {
 
   return (
     <>
 
-      <div className="project-thumbnail-container hover:scale-105 transition-transform duration-500 ease-in-out cursor-pointer" 
+      <div  className="project-thumbnail-container hover:scale-105 transition-transform duration-500 ease-in-out cursor-pointer" 
    
       >
         
@@ -27,12 +25,14 @@ export default function ProjectsThumbnails({
         </h3>
         <div className="pixel-thumbnails w-full md:w-2/3  h-30 lg:w-full md:h-30 lg:h-40">
           <Image
+          loading="lazy"
             id={`project-${thumbnailId}`}
             src={thumbnail}
             height={500}
             width={500}
             alt={`thumbnail de ${projectname}`}
             className="object-cover"
+      
           ></Image>
         </div>
         <div className="tech-grid w-2/3 md:w-full grid gap-1 grid-cols-1 md:grid-cols-3  ">

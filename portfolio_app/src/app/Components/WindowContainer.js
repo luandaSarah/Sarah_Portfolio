@@ -19,7 +19,7 @@ let handleBack= () => {
 
 const [mainTitle, setMainTitle] = useState("");
 
-const [pageLogo, setPageLogo] = useState(["/star.png", "Logo de page par défaut" ]);
+const [pageLogo, setPageLogo] = useState(["/star.p,", "Logo de page par défaut" ]);
 
 
 
@@ -27,11 +27,11 @@ const [pageLogo, setPageLogo] = useState(["/star.png", "Logo de page par défaut
         var fullPathName = window.location.pathname;
         var splitPathName = fullPathName.split("/")[1];
         console.log(splitPathName);
-        setPageLogo([`/icones/${splitPathName}.png`,`"Logo de la pagepage ${splitPathName}`]);
+        setPageLogo([`/icones/${splitPathName}.webp`,`"Logo de la page ${splitPathName}`]);
         // console.log(splitPathName);
         if (splitPathName == "") {
             setMainTitle("A PROPOS");
-            setPageLogo(["/me.png", "Logo de la page à propos"]);
+            setPageLogo(["/icones/me.webp", "Logo de la page à propos"]);
         } else if (splitPathName == "projects") {
             setMainTitle("MES PROJETS");
         } else if (splitPathName == "contact") {
@@ -72,7 +72,7 @@ const [pageLogo, setPageLogo] = useState(["/star.png", "Logo de page par défaut
               </div>
 
               <div className="pixel-corners px-4 h-3/4 w-1/3  self-end flex items-center gap-4">
-              <Image src={pageLogo[0]}  height={"30"} width={"30"} alt={pageLogo[1]} className="sm:hidden xl:block"></Image>
+              <Image loading="lazy" src={pageLogo[0]}  height={"30"} width={"30"} alt={pageLogo[1]} className="sm:hidden xl:block"></Image>
               <h1 className="text-blackColor">{mainTitle}</h1>
             </div>
             </div>
