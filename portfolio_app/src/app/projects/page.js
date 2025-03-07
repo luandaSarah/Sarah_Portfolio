@@ -21,14 +21,13 @@ export default function Projects() {
       </div>
      
 
-        <div className="project-grid  grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-rows-auto gap-9 mt-12">
+        <div className="project-grid  grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 grid-rows-auto gap-16 mt-12">
        {AllProjects.map((project, index) => (
         
             <ProjectsThumbnails
-              thumbnail={project.thumbnail}
               projectname={project.title}
               technologies={project.technologies}
-              thumbnailId={project.projectId}
+              projectIdId={project.projectId}
               key={index}
             />
       
