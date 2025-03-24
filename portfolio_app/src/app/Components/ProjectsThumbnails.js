@@ -1,48 +1,75 @@
 "use client";
 
 import Image from "next/image";
-import React from "react";
+import React, { useRef } from "react";
 import Link from "next/link";
-// import { Image } from "next/image";
 
 export default function ProjectsThumbnails({
-  // thumbnail: thumbnail,
+  gif: gif,
   projectname: projectname,
   technologies: technologies,
-  projectIdId: projectIdId,
+  projectId: projectId,
+  githubLink: githubLink,
+  projectDesc: projectDesc,
+  projectSolution: projectSolution,
+  time: time,
 }) {
+  const projectRef = useRef(null);
+
+  // const getTopOffset = () => {
+  //   // const { offsetTop } = projectRef.current;
+  //   // return offsetTop;
+  // }
+
+  // console.error(projectRef);
   return (
     <>
-      <div className="project-thumbnail-container hover:scale-105 transition-transform duration-500 ease-in-out cursor-pointer ">
-        <Link
-          href={`projects/${projectIdId}`}
-          className="flex flex-col items-center"
-        >
-          <div className="">
+      <div
+        className="project-thumbnail-container  pixel-thumbnails  bg-bgColor  mr-4 p-6  mb-10 min-h-2/3"
+        // ref={projectRef}
+        // onScroll = {getTopOffset}
+      >
+        <div className="flex mb-4 gap-5">
+          <h2 className="text-lg font-semibold text-blackColor ">
+            {projectname}
+          </h2>
+          <Link
+            href={githubLink}
+            className="text-center bg-secondaryColor text-whiteColor px-2 lg:py-0 rounded-2xl hover:cursor-pointer hover:bg-primaryColor hover:scale-105 transition-transform duration-500 ease-in-out"
+          >
+            Voir sur GitHub
+          </Link>
+        </div>
+
+        <div className="w-full flex">
+          <div className="  pixel-thumbnails w-1/2 h-52 relative ">
             <Image
               loading="lazy"
-              id={`project-${projectIdId}`}
-              src="/icones/folder.webp"
-              height={100}
-              width={100}
+              id={`project-${projectId}`}
+              src={gif}
+              fill
               alt={`thumbnail de ${projectname}`}
               className="object-cover"
             ></Image>
           </div>
-          <h3 className="text-center text-lg font-semibold w-full md:w-2/3 md:w-full text-blackColor">
-            {projectname}
-          </h3>
-          <div className="tech-grid  justify-center w-2/3 md:w-full grid gap-x-4 grid-cols-1  lg:grid-cols-2">
-            {technologies.map((tech) => (
-              <div
-                key={tech}
-                className="text-center text-sm bg-blackColor text-whiteColor rounded-2xl mt-3 py-0.5 lg:w-20"
-              >
-                {tech}
-              </div>
-            ))}
+
+          <div>
+            <div>
+              <p>{projectDesc}</p>
+              <p>{projectSolution}</p>
+            </div>
+            <div className="tech-grid  md:w-full flex flex-wrap h-10 ">
+              {technologies.map((tech) => (
+                <div
+                  key={tech}
+                  className="text-center text-sm bg-blackColor text-whiteColor rounded-2xl mt-3 py-0.5 lg:w-20"
+                >
+                  {tech}
+                </div>
+              ))}
+            </div>
           </div>
-        </Link>
+        </div>
       </div>
     </>
   );

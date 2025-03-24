@@ -1,49 +1,48 @@
-'use client' 
-import React, { useState, useEffect }  from "react";
+"use client";
+import React, { useState, useEffect } from "react";
 import "./componentsStyle/windowContainer.css";
 import Image from "next/image";
 
-export default function WindowContainer({content : Content}) {
-let leftArrow = "<";
-let rightArrow = ">";
+export default function WindowContainer({ content: Content }) {
+  let leftArrow = "<";
+  let rightArrow = ">";
 
-let handleBack= () => {
-    
-  window.history.back();
-  
- };
+  let handleBack = () => {
+    window.history.back();
+  };
 
- let handleForward = () => {
-   window.history.forward();
- };
+  let handleForward = () => {
+    window.history.forward();
+  };
 
-const [mainTitle, setMainTitle] = useState("");
+  const [mainTitle, setMainTitle] = useState("");
 
-const [pageLogo, setPageLogo] = useState(["/star.p,", "Logo de page par défaut" ]);
+  const [pageLogo, setPageLogo] = useState([
+    "/star.p,",
+    "Logo de page par défaut",
+  ]);
 
+  useEffect(() => {
+    var fullPathName = window.location.pathname;
+    var splitPathName = fullPathName.split("/")[1];
+    console.log(splitPathName);
+    setPageLogo([
+      `/icones/${splitPathName}.webp`,
+      `"Logo de la page ${splitPathName}`,
+    ]);
+    // console.log(splitPathName);
+    if (splitPathName == "") {
+      setMainTitle("A PROPOS");
+      setPageLogo(["/icones/me.webp", "Logo de la page à propos"]);
+    } else if (splitPathName == "projects") {
+      setMainTitle("MES PROJETS");
+    } else if (splitPathName == "contact") {
+      setMainTitle("ME CONTACTER");
+    } else {
+      setMainTitle("NOM DE LA PAGE");
+    }
+  }, []);
 
-
-    useEffect(() => {
-        var fullPathName = window.location.pathname;
-        var splitPathName = fullPathName.split("/")[1];
-        console.log(splitPathName);
-        setPageLogo([`/icones/${splitPathName}.webp`,`"Logo de la page ${splitPathName}`]);
-        // console.log(splitPathName);
-        if (splitPathName == "") {
-            setMainTitle("A PROPOS");
-            setPageLogo(["/icones/me.webp", "Logo de la page à propos"]);
-        } else if (splitPathName == "projects") {
-            setMainTitle("MES PROJETS");
-        } else if (splitPathName == "contact") {
-            setMainTitle("ME CONTACTER");
-        } else {
-          setMainTitle("NOM DE LA PAGE")
-        }
-    }, []);
-
-
-
- 
   return (
     <>
       <div className="windowContainer p-x fullWindow bg-bgColor w-full h-full relative z-10 col-start-1 col-end-11 lg:col-start-3 lg:col-end-10 lg:row-start-2 lg:row-end-8 row-start-1 row-end-9 ">
@@ -57,8 +56,18 @@ const [pageLogo, setPageLogo] = useState(["/star.p,", "Logo de page par défaut"
               </div>
 
               <div className="flex gap-5 text-3xl font-medium text-blackColor">
-              <p className="hover:cursor-pointer hover:text-primaryColor" onClick={handleBack}>{leftArrow}</p>
-              <p className="hover:cursor-pointer hover:text-primaryColor" onClick={handleForward}>{rightArrow}</p>
+                <p
+                  className="hover:cursor-pointer hover:text-primaryColor"
+                  onClick={handleBack}
+                >
+                  {leftArrow}
+                </p>
+                <p
+                  className="hover:cursor-pointer hover:text-primaryColor"
+                  onClick={handleForward}
+                >
+                  {rightArrow}
+                </p>
               </div>
 
               <div className="windowContainer w-3/4 h-12 col-start-2 col-end-3">
@@ -67,19 +76,26 @@ const [pageLogo, setPageLogo] = useState(["/star.p,", "Logo de page par défaut"
                   type="text"
                   name="searchBar"
                   id="searchBar"
-                  placeholder="Rechercher"  
+                  placeholder="Rechercher"
                 />
               </div>
 
               <div className="pixel-corners px-4 h-3/4 w-1/3  self-end flex items-center gap-4">
-              <Image loading="lazy" src={pageLogo[0]}  height={"30"} width={"30"} alt={pageLogo[1]} className="sm:hidden xl:block"></Image>
-              <h1 className="text-blackColor">{mainTitle}</h1>
-            </div>
+                <Image
+                  loading="lazy"
+                  src={pageLogo[0]}
+                  height={"30"}
+                  width={"30"}
+                  alt={pageLogo[1]}
+                  className="sm:hidden xl:block"
+                ></Image>
+                <h1 className="text-blackColor">{mainTitle}</h1>
+              </div>
             </div>
           </div>
 
-          <div className="contentContainer  mb-28 lg:mb-0 flex flex-col py-10  items-center row-start-1 lg:row-start-2 row-end-9 col-start-1 col-end-5 h-full w-full lg:py-6 lg:px-32 lg:overflow-auto  lg:inset-0 h-full w-full bg-tertiaryColor bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]">
-          <Content/>
+          <div className="contentContainer  mb-28 lg:mb-0 flex flex-col py-10  items-center row-start-1 lg:row-start-2 row-end-9 col-start-1 col-end-5 h-full w-full lg:py-6 lg:px-32 lg:overflow-auto  lg:inset-0 bg-tertiaryColor bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]">
+            <Content />
           </div>
         </div>
       </div>
