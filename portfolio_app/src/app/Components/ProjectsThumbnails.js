@@ -3,6 +3,7 @@
 import Image from "next/image";
 import React, { useRef } from "react";
 import Link from "next/link";
+import AllStacks from "./AllStacks";
 
 export default function ProjectsThumbnails({
   gif: gif,
@@ -20,17 +21,21 @@ export default function ProjectsThumbnails({
   //   // const { offsetTop } = projectRef.current;
   //   // return offsetTop;
   // }
+  const handleStacks = (stack) => {
+    const foundStack = AllStacks.find((tech) => tech.name === stack);
+    return foundStack?.icon();
+  };
 
   // console.error(projectRef);
   return (
     <>
       <div
-        className="project-thumbnail-container  pixel-thumbnails  bg-bgColor  mr-4 p-6  mb-10 min-h-2/3"
+        className="project-thumbnail-container  pixel-thumbnails  bg-bgColor  mr-4 py-10 px-6  mb-10 min-h-2/3"
         // ref={projectRef}
         // onScroll = {getTopOffset}
       >
         <div className="flex mb-4 gap-5">
-          <h2 className="text-lg font-semibold text-blackColor ">
+          <h2 className="text-xl font-bold text-blackColor ">
             {projectname}
           </h2>
           <Link
@@ -41,8 +46,8 @@ export default function ProjectsThumbnails({
           </Link>
         </div>
 
-        <div className="w-full flex">
-          <div className="  pixel-thumbnails w-1/2 h-52 relative ">
+        <div className="w-full gap-x-4 grid grid-cols-5 grid-rows-1">
+          <div className="pixel-thumbnails col-start-1 col-end-3 h-52 relative  ">
             <Image
               loading="lazy"
               id={`project-${projectId}`}
@@ -53,18 +58,15 @@ export default function ProjectsThumbnails({
             ></Image>
           </div>
 
-          <div>
+          <div className="col-start-3 col-end-6 row-start-1">
             <div>
               <p>{projectDesc}</p>
               <p>{projectSolution}</p>
             </div>
-            <div className="tech-grid  md:w-full flex flex-wrap h-10 ">
+            <div className="tech-grid  md:w-full flex  flex-wrap h-10 col-start-3 col-end-6 ">
               {technologies.map((tech) => (
-                <div
-                  key={tech}
-                  className="text-center text-sm bg-blackColor text-whiteColor rounded-2xl mt-3 py-0.5 lg:w-20"
-                >
-                  {tech}
+                <div key={tech} className="text-center mt-3">
+                  {handleStacks(tech)}
                 </div>
               ))}
             </div>
