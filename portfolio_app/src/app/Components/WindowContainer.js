@@ -4,6 +4,13 @@ import "./componentsStyle/windowContainer.css";
 import Image from "next/image";
 
 export default function WindowContainer({ content: Content }) {
+  // const [isLoading, setIsLoading] = useState(true);
+  const [mainTitle, setMainTitle] = useState("");
+  const [pageLogo, setPageLogo] = useState([
+    "/star.webp,",
+    "Logo de page par défaut",
+  ]);
+
   let leftArrow = "<";
   let rightArrow = ">";
 
@@ -15,13 +22,18 @@ export default function WindowContainer({ content: Content }) {
     window.history.forward();
   };
 
-  const [mainTitle, setMainTitle] = useState("");
 
-  const [pageLogo, setPageLogo] = useState([
-    "/star.p,",
-    "Logo de page par défaut",
-  ]);
+  useEffect(() => {
+    const loadContent = async () => {
+      setIsLoading(true);
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      setIsLoading(false);
+    };
+    loadContent();
+  }, [Content]);
 
+
+ 
   useEffect(() => {
     var fullPathName = window.location.pathname;
     var splitPathName = fullPathName.split("/")[1];
@@ -95,7 +107,7 @@ export default function WindowContainer({ content: Content }) {
           </div>
 
           <div className="contentContainer  mb-28 lg:mb-0 flex flex-col py-10  items-center row-start-1 lg:row-start-2 row-end-9 col-start-1 col-end-5 h-full w-full lg:py-6 lg:px-32 lg:overflow-auto  lg:inset-0 bg-tertiaryColor bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]">
-            <Content />
+          <Content />
           </div>
         </div>
       </div>

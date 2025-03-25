@@ -11,6 +11,7 @@ export default function Projects() {
   const PageContent = () => {
     // console.log(AllProjects);
     return (
+      
       <div className="projectsPage  w-full pb-10 px-5 lg:pb-0 lg:px-0  grid grid-cols-5 grid-rows-9 mb-73px lg:mb-0 overflow-hidden">
         <div className="projectTitle-container  col-start-1 col-end-6 row-start-1 row-end-2 w-full ">
           <h1 className=" text-3xl font-semibold  text-blackColor text-center">
