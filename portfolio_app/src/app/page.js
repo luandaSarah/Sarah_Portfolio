@@ -1,10 +1,17 @@
 "use client";
 import React, { useEffect } from "react";
-import WindowContainer from "./Components/WindowContainer";
 import Image from "next/image";
+import WindowContainer from "./Components/WindowContainer";
+import AllStacks from "./Components/AllStacks";
+import { Icon } from "@iconify/react";
 
 export default function Home() {
   const PageContent = () => {
+    const handleStacks = (stack) => {
+      const foundStack = AllStacks.find((tech) => tech.name === stack);
+      return foundStack?.icon();
+    };
+
     return (
       <>
         <div className="presentation-container  flex flex-col items-center">
@@ -18,7 +25,7 @@ export default function Home() {
               className="z-30 absolute object-cover	w-full h-full  rounded-3xl"
             ></Image>
 
-            <div className=" bg-bgColor rounded-3xl absolute    bottom-0 w-full h-3/4 z-20 "></div>
+            {/* <div className=" bg-bgColor rounded-3xl absolute    bottom-0 w-full h-3/4 z-20 "></div> */}
 
             <div className="softskills-bubble absolute bg-blackColor text-whiteColor px-2 rounded-2xl -left-10 bottom-20  z-40">
               <p>Créative</p>
@@ -70,68 +77,32 @@ export default function Home() {
 
         <div className="hardSkills-container flex w-2/3 lg:w-full flex-col  lg:flex-row justify-around mt-12">
           <div className="backSkills">
-            <h3 className="text-lg text-center mb-4 text-blackColor semibold">
+            <h3 className="text-2xl text-center mb-6 text-blackColor font-semibold">
               Back-End
             </h3>
-            <ul className="skillsList  grid     2xl:grid-cols-3 xl:grid-cols-2 gap-3 mb-9">
-              <li className="hardSkills-Bubble text-center bg-blackColor text-whiteColor px-2 py-3 lg:py-0  rounded-2xl">
-                PHP
-              </li>
-              <li className="hardSkills-Bubble text-center bg-blackColor text-whiteColor px-2 py-3 lg:py-0  rounded-2xl">
-                SYMPHONY
-              </li>
-              <li className="hardSkills-Bubble text-center bg-blackColor text-whiteColor px-2 py-3 lg:py-0  rounded-2xl">
-                MYSQL
-              </li>
-              <li className="hardSkills-Bubble text-center bg-blackColor text-whiteColor px-2 py-3 lg:py-0  rounded-2xl">
-                GIT
-              </li>
-              <li className="hardSkills-Bubble text-center bg-blackColor text-whiteColor px-2 py-3 lg:py-0  rounded-2xl">
-                LINUX
-              </li>
-              <li className="hardSkills-Bubble text-center bg-blackColor text-whiteColor px-2 py-3 lg:py-0  rounded-2xl">
-                BASH
-              </li>
-              <li className="hardSkills-Bubble text-center bg-blackColor text-whiteColor px-2 py-3 lg:py-0  rounded-2xl">
-                DOCKER
-              </li>
-              <li className="hardSkills-Bubble text-center bg-blackColor text-whiteColor px-2 py-3 lg:py-0  rounded-2xl">
-                POSTMAN
-              </li>
+            <ul className="skillsList grid 2xl:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-3">
+              <li className="hardSkills-Bubble">{handleStacks("php")}</li>
+              <li className="hardSkills-Bubble">{handleStacks("symfony")}</li>
+              <li className="hardSkills-Bubble">{handleStacks("mysql")}</li>
+              <li className="hardSkills-Bubble">{handleStacks("git")}</li>
+              <li className="hardSkills-Bubble">{handleStacks("linux")}</li>
+              <li className="hardSkills-Bubble">{handleStacks("bash")}</li>
+              <li className="hardSkills-Bubble">{handleStacks("docker")}</li>
+              <li className="hardSkills-Bubble">{handleStacks("postman")}</li>
             </ul>
           </div>
           <div className="frontSkills">
-            <h3 className="text-lg text-center mb-4 text-blackColor ">
+            <h3 className="text-2xl text-center mb-6 text-blackColor font-semibold ">
               Front-End
             </h3>
-            <ul className="skillsList grid 2xl:grid-cols-3 xl:grid-cols-2 gap-3">
-              <li className="hardSkills-Bubble text-center bg-blackColor text-whiteColor px-2 py-3 lg:py-0  rounded-2xl">
-                JAVASCRIPT
-              </li>
-              <li className="hardSkills-Bubble text-center bg-blackColor text-whiteColor px-2 py-3 lg:py-0  rounded-2xl">
-                HTML
-              </li>
-              <li className="hardSkills-Bubble text-center bg-blackColor text-whiteColor px-2 py-3 lg:py-0  rounded-2xl">
-                CSS
-              </li>
-              <li className="hardSkills-Bubble text-center bg-blackColor text-whiteColor px-2 py-3 lg:py-0  rounded-2xl">
-                REACT
-              </li>
-              <li className="hardSkills-Bubble text-center bg-blackColor text-whiteColor px-2 py-3 lg:py-0  rounded-2xl">
-                REACT NATIVE
-              </li>
-              <li className="hardSkills-Bubble text-center bg-blackColor text-whiteColor px-2 py-3 lg:py-0  rounded-2xl">
-                VUE
-              </li>
-              <li className="hardSkills-Bubble text-center bg-blackColor text-whiteColor px-2 py-3 lg:py-0  rounded-2xl">
-                ANGULAR
-              </li>
-              <li className="hardSkills-Bubble text-center bg-blackColor text-whiteColor px-2 py-3 lg:py-0  rounded-2xl">
-                TAILWIND
-              </li>
-              <li className="hardSkills-Bubble text-center bg-blackColor text-whiteColor px-2 py-3 lg:py-0  rounded-2xl">
-                FIGMA
-              </li>
+            <ul className="skillsList grid 2xl:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-3">
+              <li className="hardSkills-Bubble">{handleStacks("javascript")}</li>
+              <li className="hardSkills-Bubble text-center">{handleStacks("html")}</li>
+              <li className="hardSkills-Bubble">{handleStacks("css")}</li>
+              <li className="hardSkills-Bubble">{handleStacks("react")}</li>
+              <li className="hardSkills-Bubble">{handleStacks("vue")}</li>
+              <li className="hardSkills-Bubble">{handleStacks("tailwind")}</li>
+              <li className="hardSkills-Bubble">{handleStacks("figma")}</li>
             </ul>
           </div>
         </div>
