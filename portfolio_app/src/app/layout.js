@@ -10,12 +10,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="fr">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <style>
           @import
-          url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+          url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap");
         </style>
         <link rel="shorcut icon" href="/favicon.ico" />
       </head>
