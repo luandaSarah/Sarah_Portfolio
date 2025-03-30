@@ -10,10 +10,7 @@ export default function ProjectsThumbnails({
   projectname: projectname,
   technologies: technologies,
   projectId: projectId,
-  githubLink: githubLink,
   projectDesc: projectDesc,
-  projectSolution: projectSolution,
-  time: time,
 }) {
   const projectRef = useRef(null);
 
@@ -39,10 +36,10 @@ export default function ProjectsThumbnails({
             {projectname}
           </h2>
           <Link
-            href={githubLink}
+            href= {'/projects/' + projectId}
             className="text-center bg-secondaryColor text-whiteColor px-2 lg:py-0 rounded-2xl hover:cursor-pointer hover:bg-primaryColor hover:scale-105 transition-transform duration-500 ease-in-out"
           >
-            Voir sur GitHub
+            Voir le projet
           </Link>
         </div>
 
@@ -61,7 +58,8 @@ export default function ProjectsThumbnails({
           <div className="col-start-3 col-end-6 row-start-1">
             <div>
               <p>{projectDesc}</p>
-              <p>{projectSolution}</p>
+              
+              {/* <p>{projectSolution}</p> */}
             </div>
             <div className="tech-grid  md:w-full flex  flex-wrap h-10 col-start-3 col-end-6 ">
               {technologies.map((tech) => (

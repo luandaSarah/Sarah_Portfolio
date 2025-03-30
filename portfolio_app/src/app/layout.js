@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
         </style>
         <link rel="shorcut icon" href="/favicon.ico" />
       </head>
-      <body className=" bg-tertiaryColor lg:bg-bgColor w-screen h-screen ">
+      <body className=" bg-tertiaryColor lg:bg-bgColor w-screen h-screen flex items-center justify-center">
         <LoadingWrapper
           content= {
             <main className=" lg:px-4  w-full h-full grid lg:grid-cols-10 lg:grid-rows-8 md:gap-x-4 overflow-x-hidden">

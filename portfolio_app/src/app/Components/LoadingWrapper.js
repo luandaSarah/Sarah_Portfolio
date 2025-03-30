@@ -7,7 +7,11 @@ export default function LoadingWrapper({ content: content }) {
 
   useEffect(() => {
     const loadApp = async () => {
+      
+      // intervalId = setInterval()
+    
       await new Promise((resolve) => setTimeout(resolve, 1500)); // Simule un délai de chargement
+     
       setIsLoading(false);
     };
 

@@ -49,7 +49,7 @@ export default function Home() {
           </div>
 
           <div className="nameAbout-container text-blackColor text-center pl-3">
-            <h1 className=" sarahLuanda  pt-2 text-5xl font-medium text-secondaryColor">
+            <h1 className="type-animation  pt-2 text-5xl font-medium text-secondaryColor">
               SARAH LUANDA
             </h1>
 

@@ -3,33 +3,29 @@ import WindowContainer from "../Components/WindowContainer";
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import Image from "next/image";
+import Loader from "../Components/Loader";
 
 export default function Contact() {
   const form = useRef();
+  const [sent, setSent] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const [sent, setSent]  = useState(false);
-
-  
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
 
-   let  nameValue = form.current.user_fullname.value;
-   let  mailValue = form.current.user_mail.value;
-   let subjectValue = form.current.mail_subject.value;
-   let  messageValue = form.current.message.value;
-   let nameRegex =/^[a-zA-Z ,.'-]+[a-zA-Z ,.'-]+$/gm;
-    let mailRegex =  /^((?!\.)[\w\-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/gm;
+  
 
-    if (
-      nameValue.value === "" ||
-      !nameRegex.test(nameValue)
-    ) {
+    let nameValue = form.current.user_fullname.value;
+    let mailValue = form.current.user_mail.value;
+    let subjectValue = form.current.mail_subject.value;
+    let messageValue = form.current.message.value;
+    let nameRegex = /^[a-zA-Z ,.'-]+[a-zA-Z ,.'-]+$/gm;
+    let mailRegex = /^((?!\.)[\w\-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/gm;
+
+    if (nameValue.value === "" || !nameRegex.test(nameValue)) {
       alert("Veuillez renseigner un nom et prénom valide");
       return;
-    } else if (
-      mailValue === "" ||
-      !mailRegex.test(mailValue)
-    ) {
+    } else if (mailValue === "" || !mailRegex.test(mailValue)) {
       alert("Veuillez renseigner une adresse email valide");
       return;
     } else if (subjectValue === "") {
@@ -39,37 +35,43 @@ export default function Contact() {
       alert("Veuillez renseigner un message");
       return;
     } else {
-      emailjs
-        .sendForm("service_pswb6kv", "template_uq8y8w9", form.current, {
+      setIsLoading(true);
+      try {
+        await emailjs.sendForm("service_pswb6kv", "template_uq8y8w9", form.current, {
           publicKey: "XpdC7LiHE8dHPBsjJ",
-        })
-        .then(
-          () => {
-            console.log("SUCCESS!");
-            setSent(true);
-          },
-          (error) => {
-            console.log("FAILED...", error.text);
-            setSent(false);
-          }
-        );
+        });
+        setSent(true);
+        console.log("SUCCESS!");
+      } catch (error) {
+        setSent(false);
+        console.log("FAILED...", error.text);
+      } finally{
+        setTimeout(() => {
+          setIsLoading(false); 
+        }, 2000);  
+      }
+      
     }
+    
   };
 
   const beforeSubmit = () => {
-  
-      return (
-        <>  <div className="contactTitle-container  flex flex-col items-center text-blackColor text-center gap-2 pb-2">
-        <h1 className=" text-3xl w-2/4 font-semibold  pb-6 ">Me contacter</h1>
-        <p className="mx-3 pb-9 text-lg ">
-          Vous souhaitez travailler avec moi ou bien vous avez des questions ?
-          <br />
-          Pas de soucis, remplissez le formulaire ci-dessous et je vous
-          repondrez dans les plus bref délais.
-          <br />
-          Merci beaucoup !
-        </p>
-      </div>
+
+    
+    return (
+      <>
+      
+        <div className="contactTitle-container  flex flex-col items-center text-blackColor text-center gap-2 pb-2">
+          <h1 className=" text-3xl w-2/4 font-semibold  pb-6 ">Me contacter</h1>
+          <p className="mx-3 pb-9 text-lg ">
+            Vous souhaitez travailler avec moi ou bien vous avez des questions ?
+            <br />
+            Pas de soucis, remplissez le formulaire ci-dessous et je vous
+            repondrez dans les plus bref délais.
+            <br />
+            Merci beaucoup !
+          </p>
+        </div>
         <form
           id="form"
           ref={form}
@@ -125,49 +127,43 @@ export default function Contact() {
             />
           </div>
         </form>
-        </>
-      );
-    
+      </>
+    );
   };
 
   const afterSubmit = () => {
-    
-      return (
-        <div className="contactTitle-container  flex flex-col text-center text-blackColor justify-center items-center gap-6">
-         
-         <Image 
-         loading="lazy"
-          width={200}
-            height={200}
-            src={"/icones/sent.webp"}
-            alt={"Avion en papier, icone indiquant l'envoie"}
->
-          </Image>
-         
-          <h1 className=" text-3xl w-2/4 font-semibold  ">
-            Merci pour votre message ! 
-          </h1>
-          <p className="text-lg ">
-            Votre message a bien été reçu, je vous repondrez dans les plus bref
-            délais.
-            
-          </p>
 
-          
-          
-        </div>
-      );
-    }
-  
-  const PageContent = () => {
+    
+    
     return (
       <>
-      
+     {sent ?  
+      <div className="contactTitle-container  flex flex-col text-center text-blackColor justify-center items-center gap-6">
+        <Image
+          loading="lazy"
+          width={200}
+          height={200}
+          src={"/icones/sent.webp"}
+          alt={"Avion en papier, icone indiquant l'envoie"}
+        ></Image>
 
-        {sent ? afterSubmit() : beforeSubmit()}
-      
+        <h1 className=" text-3xl w-2/4 font-semibold  ">
+          Merci pour votre message !
+        </h1>
+        <p className="text-lg ">
+          Votre message a bien été reçu, je vous repondrez dans les plus bref
+          délais.
+        </p>
+      </div>
+      : <Loader page='contact'/> 
+       }
       </>
     );
+    
+  };
+
+  const PageContent = () => {
+    return <>{isLoading ? afterSubmit() : beforeSubmit()}</>;
   };
 
   return (
