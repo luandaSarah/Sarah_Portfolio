@@ -23,14 +23,14 @@ export default function WindowContainer({ content: Content }) {
   };
 
 
-  useEffect(() => {
-    const loadContent = async () => {
-      setIsLoading(true);
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      setIsLoading(false);
-    };
-    loadContent();
-  }, [Content]);
+  // useEffect(() => {
+  //   const loadContent = async () => {
+  //     setIsLoading(true);
+  //     await new Promise((resolve) => setTimeout(resolve, 1500));
+  //     setIsLoading(false);
+  //   };
+  //   loadContent();
+  // }, [Content]);
 
 
  

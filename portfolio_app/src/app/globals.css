@@ -97,7 +97,7 @@
   }
 }
 
-.sarahLuanda {
+.type-animation {
   overflow: hidden; 
   border-right: .1em solid var(--primaryColor); 
   white-space: nowrap; 
@@ -107,6 +107,13 @@
     typing 2s steps(40, end),
     blink-caret 1s step-end infinite;
 }
+
+.loader {
+  animation: 
+    typing 2s steps(40, end) infinite,
+    blink-caret 1.5s step-end infinite;
+}
+
 
 @keyframes typing {
   from { width: 0 }
