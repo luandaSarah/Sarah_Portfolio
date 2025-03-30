@@ -56,7 +56,7 @@ export default async function ProjectDetails({ params }) {
           <Image
             loading="lazy"
             id={`project-${getProject.projectId}`}
-            src={getProject.gif}
+            src={getProject.img}
             fill
             alt={`thumbnail de ${getProject.title}`}
             className="object-cover"
