@@ -48,7 +48,7 @@ const AllProjects = [
   {
     title: "Spotify Clone",
     projectId: "spotify-clone",
-    description: "Clone simplifié de Spotify réalisé en React, permettant d'afficher dynamiquement des albums, des artistes et des genres de musique grâce à une API.",
+    description: "Clone simplifié de Spotify réalisé avec React, permettant d'afficher dynamiquement des albums, des artistes et des genres de musique grâce à une API.",
     solution:"J'ai développé une interface interactive en React qui récupère et affiche des albums, artistes et genres de musique en effectuant des requêtes API dynamiques. L'affichage est mis à jour au scroll pour une navigation fluide.",
     extractTitle : "Affichage dynamique des albums, artistes et genres",
     codeExplaination : "Ce code récupère dynamiquement les albums effectuant une requête API. Il met à jour l'affichage au scroll et empêche les doublons.",

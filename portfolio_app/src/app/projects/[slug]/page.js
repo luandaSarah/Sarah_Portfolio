@@ -21,7 +21,7 @@ export default async function ProjectDetails({ params }) {
   // console.log(getProject);
   const pageUnfound = () => {
     return (
-      <div className="w-full h-full flex flex-col justify-center items-center gap-4">
+      <div className=" w-full pb-10 px-5 lg:pb-0 lg:px-0  h-full flex flex-col justify-center items-center gap-4">
         <h1 className=" text-3xl font-semibold  text-blackColor text-center">
           Ce projet n'existe pas
         </h1>
@@ -37,7 +37,7 @@ export default async function ProjectDetails({ params }) {
 
   const pageFound = () => {
     return (
-      <div className="w-full flex flex-col justify-center items-center gap-4">
+      <div className="  w-full pb-10 px-5 lg:pb-0 lg:px-0  flex flex-col justify-center items-center gap-4">
         <div className="flex mb-4 gap-5">
           <h1 className=" text-3xl font-semibold  text-blackColor text-center">
             {getProject.title}
