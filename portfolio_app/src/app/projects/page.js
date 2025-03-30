@@ -43,7 +43,7 @@ export default function Projects() {
         <div className="overflow-y-auto md:col-start-2 col-start-1 col-end-6 md:row-start-2 row-start-3 row-end-10 ">
           {AllProjects.map((project) => (
             <ProjectsThumbnails
-              gif={project.gif}
+              img={project.img}
               projectname={project.title}
               technologies={project.technologies}
               projectId={project.projectId}

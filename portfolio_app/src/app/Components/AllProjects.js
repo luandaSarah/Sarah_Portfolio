@@ -38,7 +38,7 @@ const AllProjects = [
 }
 `,
     technologies: ["javascript", "html", "css"],
-    gif: "/gif/puissance4.gif",
+    img: "/thumbnails/puissance4.webp",
     // gallery: ["/thumbnails/puissance4-thumbnail.webp", ],
     link: "https://luandasarah.github.io/Projet-WebAcademy-Puissance4/",
     // githubLink: "",
@@ -74,7 +74,7 @@ const AllProjects = [
             });
     }, [page]);`,
     technologies: ["react", "css", "docker"],
-    gif: "/gif/Spotify.gif",
+    img: "/thumbnails/spotify.webp",
     githubLink: "https://github.com/luandaSarah/Projet-WebAcademy-Spotify",
   },
 
@@ -108,7 +108,7 @@ const AllProjects = [
   handleModifyBtn(modifyBtn, taskContainer);
 });`,
     technologies: ["javascript", "css", "html"],
-    gif: "/gif/ToDoList.gif",
+    img: "/thumbnails/to-do-list.webp",
     link: "https://luandasarah.github.io/ToDoList/",
   },
 ];

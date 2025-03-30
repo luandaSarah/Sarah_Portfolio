@@ -6,7 +6,7 @@ import Link from "next/link";
 import AllStacks from "./AllStacks";
 
 export default function ProjectsThumbnails({
-  gif: gif,
+  img: img,
   projectname: projectname,
   technologies: technologies,
   projectId: projectId,
@@ -42,7 +42,7 @@ export default function ProjectsThumbnails({
             <Image
               loading="lazy"
               id={`project-${projectId}`}
-              src={gif}
+              src={img}
               fill
               alt={`thumbnail de ${projectname}`}
               className="object-cover"
