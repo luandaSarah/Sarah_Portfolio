@@ -13,8 +13,6 @@ export default function Contact() {
   const sendEmail = async (e) => {
     e.preventDefault();
 
-  
-
     let nameValue = form.current.user_fullname.value;
     let mailValue = form.current.user_mail.value;
     let subjectValue = form.current.mail_subject.value;
@@ -37,37 +35,37 @@ export default function Contact() {
     } else {
       setIsLoading(true);
       try {
-        await emailjs.sendForm("service_pswb6kv", "template_uq8y8w9", form.current, {
-          publicKey: "XpdC7LiHE8dHPBsjJ",
-        });
+        await emailjs.sendForm(
+          "service_pswb6kv",
+          "template_uq8y8w9",
+          form.current,
+          {
+            publicKey: "XpdC7LiHE8dHPBsjJ",
+          }
+        );
         setSent(true);
         console.log("SUCCESS!");
       } catch (error) {
         setSent(false);
         console.log("FAILED...", error.text);
-      } finally{
+      } finally {
         setTimeout(() => {
-          setIsLoading(false); 
-        }, 2000);  
+          setIsLoading(false);
+        }, 2000);
       }
-      
     }
-    
   };
 
   const beforeSubmit = () => {
-
-    
     return (
       <>
-      
         <div className="contactTitle-container  flex flex-col items-center text-blackColor text-center gap-2 pb-2">
           <h1 className=" text-3xl w-2/4 font-semibold  pb-6 ">Me contacter</h1>
           <p className="mx-3 pb-9 text-lg ">
-            Vous souhaitez travailler avec moi ou bien vous avez des questions ?
+            Vous souhaitez travailler avec moi ou vous avez des questions ?
             <br />
-            Pas de soucis, remplissez le formulaire ci-dessous et je vous
-            repondrez dans les plus bref délais.
+            Pas de souci, remplissez le formulaire ci-dessous et je vous
+            répondrai dans les plus brefs délais.
             <br />
             Merci beaucoup !
           </p>
@@ -132,34 +130,31 @@ export default function Contact() {
   };
 
   const afterSubmit = () => {
-
-    
-    
     return (
       <>
-     {sent ?  
-      <div className="contactTitle-container  flex flex-col text-center text-blackColor justify-center items-center gap-6">
-        <Image
-          loading="lazy"
-          width={200}
-          height={200}
-          src={"/icones/sent.webp"}
-          alt={"Avion en papier, icone indiquant l'envoie"}
-        ></Image>
+        {sent ? (
+          <div className="contactTitle-container  flex flex-col text-center text-blackColor justify-center items-center gap-6">
+            <Image
+              loading="lazy"
+              width={200}
+              height={200}
+              src={"/icones/sent.webp"}
+              alt={"Avion en papier, icone indiquant l'envoie"}
+            ></Image>
 
-        <h1 className=" text-3xl w-2/4 font-semibold  ">
-          Merci pour votre message !
-        </h1>
-        <p className="text-lg ">
-          Votre message a bien été reçu, je vous repondrez dans les plus bref
-          délais.
-        </p>
-      </div>
-      : <Loader page='contact'/> 
-       }
+            <h1 className=" text-3xl w-2/4 font-semibold  ">
+              Merci pour votre message !
+            </h1>
+            <p className="text-lg ">
+              Votre message a bien été reçu, je vous repondrez dans les plus
+              bref délais.
+            </p>
+          </div>
+        ) : (
+          <Loader page="contact" />
+        )}
       </>
     );
-    
   };
 
   const PageContent = () => {

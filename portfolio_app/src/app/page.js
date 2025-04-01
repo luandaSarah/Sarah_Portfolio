@@ -54,7 +54,7 @@ export default function Home() {
             </h1>
 
             <h2 className="text-2xl mt-20 font-semibold bg-bgColor rounded-xl ">
-              Développeuse Full Stack
+              Développeuse Web Junior 
             </h2>
           </div>
 
@@ -96,8 +96,12 @@ export default function Home() {
               Front-End
             </h3>
             <ul className="skillsList grid 2xl:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-3">
-              <li className="hardSkills-Bubble">{handleStacks("javascript")}</li>
-              <li className="hardSkills-Bubble text-center">{handleStacks("html")}</li>
+              <li className="hardSkills-Bubble">
+                {handleStacks("javascript")}
+              </li>
+              <li className="hardSkills-Bubble text-center">
+                {handleStacks("html")}
+              </li>
               <li className="hardSkills-Bubble">{handleStacks("css")}</li>
               <li className="hardSkills-Bubble">{handleStacks("react")}</li>
               <li className="hardSkills-Bubble">{handleStacks("vue")}</li>
