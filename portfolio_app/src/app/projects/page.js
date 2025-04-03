@@ -19,23 +19,24 @@ export default function Projects() {
 
   const PageContent = () => {
     return (
-      <div className="projectsPage  w-full pb-10 px-5 lg:pb-0 lg:px-0  flex flex-col md:grid md:grid-cols-5 md:grid-rows-9 mb-73px lg:mb-0 overflow-hidden gap-8 md:gap-4">
-        <div className="projectTitle-container  col-start-1 col-end-6 row-start-1 row-end-2 w-full ">
+      <div className="projectsPage  w-full py-4 lg:py-2 px-2 lg:px-10  flex flex-col md:grid md:grid-cols-5 md:grid-rows-9 mb-73px lg:mb-0 overflow-hidden gap-8 md:gap-4">
+        <div className="projectTitle-container  col-start-1 col-end-6 row-start-1 row-end-2 w-full sticky md:static">
           <h1 className=" text-3xl font-semibold  text-blackColor text-center">
             Mes projets
           </h1>
         </div>
 
-        <div className="col-start-1 col-end-6 md:col-end-2 row-start-2  row-end-3 md:row-end-10 ">
-          <ul className="text-whiteColor font-semibold text-lg md:overflow-y-auto overflow-x-auto flex md:flex-col gap-2 justify-center">
+        <div className="col-start-1 col-end-6 md:col-end-2 row-start-2  row-end-3 md:row-end-10 sticky md:static">
+          <ul className="text-whiteColor font-semibold min-w- text-lg md:overflow-y-auto overflow-x-auto flex md:flex-col gap-2 justify-center">
             {AllProjects.map((project, index) => (
               <li
                 key={index}
                 onClick={() => scrollToProject(project.projectId)}
-                className=" bg-blackColor rounded-xl text-center cursor-pointer hover:bg-blackColor hover:opacity-85 ">
+                className=" bg-blackColor px-2 rounded-xl text-center cursor-pointer hover:bg-blackColor hover:opacity-85 mt-2 ">
               
                 {project.title}
               </li>
+              
             ))}
           </ul>
         </div>

@@ -21,8 +21,8 @@ export default function RootLayout({ children }) {
       </head>
       <body className=" bg-tertiaryColor lg:bg-bgColor w-screen h-screen flex items-center justify-center">
         <LoadingWrapper
-          content= {
-            <main className=" lg:px-4  w-full h-full grid lg:grid-cols-10 lg:grid-rows-8 md:gap-x-4 overflow-x-hidden">
+          content={
+            <main className=" lg:px-4  min-h-screen w-screen h-screen grid lg:grid-cols-10 lg:grid-rows-8 md:gap-x-4 overflow-x-hidden">
               <Navbar />
 
               {children}
@@ -30,14 +30,14 @@ export default function RootLayout({ children }) {
               <Link
                 href="https://github.com/luandaSarah"
                 target="_blank"
-                className="  sticky bottom-5 left-2 z-10   lg:flex lg:flex-col lg:justify-self-end lg:self-center lg:col-start-10  lg:col-end-11 lg:row-start-8 lg:row-end-9 lg:static"
+                className="  fixed bottom-5 left-2 z-10   lg:flex lg:flex-col lg:justify-self-end lg:self-center lg:col-start-10  lg:col-end-11 lg:row-start-8 lg:row-end-9 lg:static"
               >
                 <Image
                   loading="lazy"
                   id="meLogo"
                   src={"/icones/github.webp"}
-                  width={40}
-                  height={40}
+                  width={50}
+                  height={50}
                   alt="logo a propos"
                 ></Image>
               </Link>

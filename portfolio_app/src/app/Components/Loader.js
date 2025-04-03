@@ -8,7 +8,7 @@ export default function Loader({ page: page = null }) {
         <div className="windowContainer  p-x fullWindow bg-bgColor w-full h-full lg:w-1/3 lg:h-1/3">
           <div className="windowContainer-grid w-full h-full grid lg:grid-rows-8 lg:grid-cols-4">
             <div className="windowContainer-topContainer hidden lg:block col-start-1 col-end-5 row-start-1 row-end-2 border-blackColor border-b-4">
-              <div className="flex gap-2 text-3xl text-blackColor">
+              <div className="flex gap-2 text-3xl text-blackColor ">
                 <p>o</p>
                 <p>o</p>
                 <p>o</p>

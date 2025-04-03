@@ -22,7 +22,6 @@ export default function WindowContainer({ content: Content }) {
     window.history.forward();
   };
 
-
   // useEffect(() => {
   //   const loadContent = async () => {
   //     setIsLoading(true);
@@ -32,8 +31,6 @@ export default function WindowContainer({ content: Content }) {
   //   loadContent();
   // }, [Content]);
 
-
- 
   useEffect(() => {
     var fullPathName = window.location.pathname;
     var splitPathName = fullPathName.split("/")[1];
@@ -57,7 +54,7 @@ export default function WindowContainer({ content: Content }) {
 
   return (
     <>
-      <div className="windowContainer p-x fullWindow bg-bgColor w-full h-full relative z-10 col-start-1 col-end-11 lg:col-start-3 lg:col-end-10 lg:row-start-2 lg:row-end-8 row-start-1 row-end-9 ">
+      <div className="windowContainer  p-x fullWindow bg-bgColor w-full h-full relative z-10 col-start-1 col-end-11 lg:col-start-3 lg:col-end-10 lg:row-start-2 lg:row-end-8 row-start-1 row-end-9 ">
         <div className="windowContainer-grid w-full h-full grid lg:grid-rows-8 lg:grid-cols-4">
           <div className="windowContainer-topContainer hidden lg:block col-start-1 col-end-5 row-start-1 row-end-2 border-blackColor border-b-4">
             <div className="windowContainer-topContainer-elementsBox  px-5 h-full w-full flex items-center gap-5">
@@ -106,13 +103,14 @@ export default function WindowContainer({ content: Content }) {
             </div>
           </div>
 
-          <div className="contentContainer  mb-28 lg:mb-0 flex flex-col py-10  items-center row-start-1 lg:row-start-2 row-end-9 col-start-1 col-end-5 h-full w-full lg:py-6 lg:px-32 lg:overflow-auto  lg:inset-0 bg-tertiaryColor bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]">
-          <Content />
+          <div className="contentContainer  flex flex-col   items-center row-start-1 lg:row-start-2 row-end-9 col-start-1 col-end-5 h-full w-full  overflow-auto  lg:inset-0 bg-tertiaryColor bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pb-52 lg:pb-0">
+            <Content />
           </div>
         </div>
       </div>
+  
 
-      <div className="windowContainer shadowContainer absolute z-0 bg-blackColor top-5 left-5 col-start-3 col-end-10 row-start-2 row-end-8 hidden lg:block"></div>
+      <div className="windowContainer shadowContainer absolute z-0 bg-blackColor inset-0 translate-x-5 translate-y-5 col-start-3 col-end-10 row-start-2 row-end-8 hidden lg:block"></div>
     </>
   );
 }

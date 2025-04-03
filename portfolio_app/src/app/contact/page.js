@@ -59,7 +59,7 @@ export default function Contact() {
   const beforeSubmit = () => {
     return (
       <>
-        <div className="contactTitle-container  flex flex-col items-center text-blackColor text-center gap-2 pb-2">
+        <div className="contactTitle-container  flex flex-col items-center text-blackColor text-center gap-2 pb-2 pt-5">
           <h1 className=" text-3xl w-2/4 font-semibold  pb-6 ">Me contacter</h1>
           <p className="mx-3 pb-9 text-lg ">
             Vous souhaitez travailler avec moi ou vous avez des questions ?
@@ -74,9 +74,9 @@ export default function Contact() {
           id="form"
           ref={form}
           onSubmit={sendEmail}
-          className="flex flex-col gap-5 w-full px-3 lg:px-0 "
+          className="flex flex-col gap-5 w-full px-3 lg:px-0 pb-10 "
         >
-          <div className="nameMail-container flex flex-col lg:flex-row gap-5 lg:gap-0 justify-center">
+          <div className="nameMail-container flex flex-col lg:flex-row gap-5 lg:gap-0 justify-center px-10">
             <div className=" windowContainer w-full lg:w-2/3 h-14 ">
               <input
                 type="text"
@@ -86,7 +86,7 @@ export default function Contact() {
                 className=" w-full h-full box-border placeholder:text-blackColor placeholder:opacity-50  focus:outline-none px-5 text-blackColor"
               />
             </div>
-            <div className=" windowContainer w-full lg:w-2/3 h-14">
+            <div className=" windowContainer w-full lg:w-2/3 h-14  ">
               <input
                 type="text"
                 id="user_mail"
@@ -97,7 +97,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="subjectMessage-container flex flex-col gap-5 items-center">
+          <div className="subjectMessage-container flex flex-col gap-5 items-center  px-10">
             <div className=" windowContainer  w-full h-14">
               <input
                 type="text"
@@ -107,7 +107,7 @@ export default function Contact() {
                 className=" w-full h-full box-border placeholder:text-blackColor placeholder:opacity-50  focus:outline-none px-5 text-blackColor"
               />
             </div>
-            <div className=" windowContainer w-full  h-52">
+            <div className=" windowContainer w-full  h-52 ">
               <textarea
                 type="text"
                 id="message"

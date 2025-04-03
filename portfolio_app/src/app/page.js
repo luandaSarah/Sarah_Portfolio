@@ -14,7 +14,7 @@ export default function Home() {
 
     return (
       <>
-        <div className="presentation-container  flex flex-col items-center">
+        <div className="presentation-container  flex flex-col items-center pb-10 my-2 lg:pb-0 lg:px-10">
           <div className="ppSoftskills-container  w-60 h-72 relative  ">
             <Image
               id="pp"
@@ -24,8 +24,6 @@ export default function Home() {
               alt={"Photo de Sarah"}
               className="z-30 absolute object-cover	w-full h-full  rounded-3xl"
             ></Image>
-
-            {/* <div className=" bg-bgColor rounded-3xl absolute    bottom-0 w-full h-3/4 z-20 "></div> */}
 
             <div className="softskills-bubble absolute bg-blackColor text-whiteColor px-2 rounded-2xl -left-10 bottom-20  z-40">
               <p>Créative</p>
@@ -49,12 +47,12 @@ export default function Home() {
           </div>
 
           <div className="nameAbout-container text-blackColor text-center pl-3">
-            <h1 className="type-animation  pt-2 text-5xl font-medium text-secondaryColor">
+            <h1 className="type-animation  pt-2 text-4xl md:text-5xl font-medium text-secondaryColor">
               SARAH LUANDA
             </h1>
 
-            <h2 className="text-2xl mt-20 font-semibold bg-bgColor rounded-xl ">
-              Développeuse Web Junior 
+            <h2 className="text-2xl mt-10 md:mt-20 font-semibold bg-bgColor rounded-xl  px-10 ">
+              Développeuse Web Junior
             </h2>
           </div>
 
@@ -62,7 +60,7 @@ export default function Home() {
             Bienvenue dans mon monde !
           </h3>
           <p className="text-blackColor text-center text-lg mx-3 mt-4">
-            Je suis une jeune développeuse junior de 23 ans, passionnée par les
+            Je suis une jeune développeuse junior de 24 ans, passionnée par les
             nouvelles technologies et le développement web. Dotée d'une grande
             créativité, j'aime apporter ma touche personnelle à chacun de mes
             projets.
@@ -71,16 +69,16 @@ export default function Home() {
           </p>
         </div>
 
-        <h2 className="text-2xl  text-center  mt-9 px-9 font-semibold bg-bgColor rounded-xl text-blackColor">
+        <h2 className="text-2xl mt-10 md:mt-20 font-semibold text-blackColor bg-bgColor rounded-xl px-3 text-center">
           Mes compétences techniques
         </h2>
 
-        <div className="hardSkills-container flex w-2/3 lg:w-full flex-col  lg:flex-row justify-around mt-12">
-          <div className="backSkills">
-            <h3 className="text-2xl text-center mb-6 text-blackColor font-semibold">
+        <div className="hardSkills-container flex flex-col gap-10 lg:gap  lg:flex-row mb-10  mt-12 justify-center  w-full">
+          <div className="backSkills w-full flex flex-col gap-3 mb-20 lg:mb-0 items-center  ">
+            <h3 className="text-2xl  mb-6 text-blackColor font-semibold">
               Back-End
             </h3>
-            <ul className="skillsList grid 2xl:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-3">
+            <ul className="skillsList grid 2xl:grid-cols-4 grid-cols-3 gap-20 lg:gap-10  justify-center">
               <li className="hardSkills-Bubble">{handleStacks("php")}</li>
               <li className="hardSkills-Bubble">{handleStacks("symfony")}</li>
               <li className="hardSkills-Bubble">{handleStacks("mysql")}</li>
@@ -91,11 +89,11 @@ export default function Home() {
               <li className="hardSkills-Bubble">{handleStacks("postman")}</li>
             </ul>
           </div>
-          <div className="frontSkills">
+          <div className="fontskills w-full flex flex-col gap-3 items-center lg:0 ">
             <h3 className="text-2xl text-center mb-6 text-blackColor font-semibold ">
               Front-End
             </h3>
-            <ul className="skillsList grid 2xl:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-3">
+            <ul className="skillsList grid 2xl:grid-cols-4 grid-cols-3 gap-20 lg:gap-10  justify-center">
               <li className="hardSkills-Bubble">
                 {handleStacks("javascript")}
               </li>
