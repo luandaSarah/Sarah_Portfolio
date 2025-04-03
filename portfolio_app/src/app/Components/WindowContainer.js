@@ -110,7 +110,7 @@ export default function WindowContainer({ content: Content }) {
       </div>
   
 
-      <div className="windowContainer shadowContainer absolute z-0 bg-blackColor inset-0 translate-x-5 translate-y-5 col-start-3 col-end-10 row-start-2 row-end-8 hidden lg:block"></div>
+      {/* <div className="windowContainer shadowContainer absolute z-0 bg-blackColor inset-0 translate-x-5 translate-y-5 col-start-3 col-end-10 row-start-2 row-end-8 hidden lg:block"></div> */}
     </>
   );
 }
