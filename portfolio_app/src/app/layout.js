@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
               <Link
                 href="https://github.com/luandaSarah"
                 target="_blank"
-                className="  fixed bottom-5 left-2 z-10   lg:flex lg:flex-col lg:justify-self-end lg:self-center lg:col-start-10  lg:col-end-11 lg:row-start-8 lg:row-end-9 lg:static"
+                className="  fixed bottom-5 left-2 z-50   lg:flex lg:flex-col lg:justify-self-end lg:self-center lg:col-start-10  lg:col-end-11 lg:row-start-8 lg:row-end-9 lg:static"
               >
                 <Image
                   loading="lazy"
