@@ -6,31 +6,38 @@ const AllProjects = [
     description:
       "Clone simplifié de Spotify réalisé avec React, permettant d'afficher dynamiquement des albums, des artistes et des genres de musique grâce à une API.",
     solution:
-      "J'ai développé une interface interactive en React permettant de récupérer et d'afficher dynamiquement des albums, artistes et genres musicaux via des requêtes API. L'affichage se met à jour au scroll pour une navigation fluide. Une barre de recherche avec filtres permet d'affiner les résultats. La page d\'accueil affiche des albums de façon aléatoire. Chaque album est associé à un genre et à un artiste via un ID. Il contient également des morceaux de musique qu\'il est possible d\'écouter directement depuis l\'interface.",
-    extractTitle: "Requête API pour récupérer dynamiquement les artistes et albums.",
+      "J'ai développé une interface interactive en React permettant de récupérer et d'afficher dynamiquement des albums, artistes et genres musicaux via des requêtes API. L'affichage se met à jour au scroll pour une navigation fluide. Une barre de recherche avec filtres permet d'affiner les résultats. La page d'accueil affiche des albums de façon aléatoire. Chaque album est associé à un genre et à un artiste via un ID. Il contient également des morceaux de musique qu'il est possible d'écouter directement depuis l'interface.",
+    extractTitle:
+      "Requête API pour récupérer dynamiquement les artistes et albums.",
     codeExplaination:
       "Ce code récupère dynamiquement des données via une requête GET, met à jour l'affichage lors du défilement et évite les doublons. L'encapsulation dans le hook useEffect permet le re-render du composant à chaque changement de page contenant les nouvelles données.",
-    codeExtract: `useEffect(() => {
-        fetch("http://localhost:8000/data?page=" + page +"&limit=20",{
-            method: "GET",
-            headers: {
-                "Accept": "application/json",
-                "Content-Type": "application/json",
-            },
-        })
-            .then((res) => res.json())
-            .then((newData) => {
-                setData((prevData) => {
-                    const updatedData = [...prevData];
-                    newData.forEach(item => {
-                        if (!updatedData.find(a => a.id === item.id)) {
-                            updatedData.push(item);
+    codeExtract: `useEffect( ()=> {
+        const fetchAlbums= async () => {
+        try {
+
+       const res = await fetch('http://localhost:8000/albums?page=' + page + '&limit=20');
+
+       if(!res.ok) {
+        console.error('Erreur HTTP ! statut : ' + res.status);
+       }
+            const data = await res.json();
+                console.log(data)
+                setAlbums((prevAlbums) => {
+                    const updatedAlbums = [...prevAlbums];
+                    data.forEach(album => {
+                        if (!updatedAlbums.find(a => a.id === album.id)) {
+                            updatedAlbums.push(album);
                         }
                     });
-                    return updatedData;
+                    return updatedAlbums;
                 });
-            });
+        } catch(error) {
+            console.error('Erreur lors de la requête :' + error)
+        }}
+
+        fetchAlbums();
     }, [page]);`,
+
     technologies: ["react", "css", "docker"],
     img: "/thumbnails/spotify.webp",
     githubLink: "https://github.com/luandaSarah/Projet-WebAcademy-Spotify",
