@@ -53,7 +53,7 @@ export default function Navbar() {
           </Link>
 
           <Link
-            href="documents/CV_stage_Sarah_Luanda.pdf"
+            href="documents/CV_Sarah_Luanda.pdf"
             target="_blank"
             className="flex  gap-2 items-center  flex flex-col font-semibold hover:text-primaryColor "
           >
