@@ -10,6 +10,7 @@ import Link from "next/link";
 
 export default function ProjectDetails() {
   const params = useParams();
+  const [indexImg, setIndexImg] = useState(0);
   let { slug } = params;
   // console.log(params);
   const leftArrow = "<";
@@ -42,7 +43,7 @@ export default function ProjectDetails() {
   };
 
   const pageFound = () => {
-    const [indexImg, setIndexImg] = useState(0);
+   
 
     const incrImage = (img) => {
       if (indexImg < img.length - 1) {
