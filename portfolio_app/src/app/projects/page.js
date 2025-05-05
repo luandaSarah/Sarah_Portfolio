@@ -31,7 +31,7 @@ export default function Projects() {
             {AllProjects.map((project, index) => (
               <li
                 key={index}
-                onClick={() => scrollToProject(project.projectId)}
+                onClick={() => scrollToProject(project.slug)}
                 className=" bg-blackColor px-2 rounded-xl text-center cursor-pointer hover:bg-blackColor hover:opacity-85 mt-2 ">
               
                 {project.title}
@@ -47,11 +47,11 @@ export default function Projects() {
               img={project.img}
               projectname={project.title}
               technologies={project.technologies}
-              projectId={project.projectId}
+              slug={project.slug}
               githubLink={project.githubLink}
               projectDesc={project.description}
               projectSolution={project.solution}
-              key={project.projectId}
+              key={project.slug}
             />
           ))}
         </div>

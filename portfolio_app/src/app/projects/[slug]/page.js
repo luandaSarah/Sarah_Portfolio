@@ -4,13 +4,19 @@ import WindowContainer from "@/app/Components/WindowContainer";
 import AllProjects from "@/app/Components/AllProjects";
 import Image from "next/image";
 import AllStacks from "@/app/Components/AllStacks";
+import { useState } from "react";
+import { useParams } from "next/navigation";
 import Link from "next/link";
 
-export default async function ProjectDetails({ params }) {
-  let { slug } = await params;
+export default function ProjectDetails() {
+  const params = useParams();
+  let { slug } = params;
+  // console.log(params);
+  const leftArrow = "<";
+  const rightArrow = ">";
 
   const getProject = AllProjects.find((project) => {
-    return project.projectId === slug;
+    return project.slug === slug;
   });
 
   const handleStacks = (stack) => {
@@ -36,18 +42,71 @@ export default async function ProjectDetails({ params }) {
   };
 
   const pageFound = () => {
+    const [indexImg, setIndexImg] = useState(0);
+
+    const incrImage = (img) => {
+      if (indexImg < img.length - 1) {
+        setIndexImg(indexImg + 1);
+      }
+    };
+
+    const decrImage = () => {
+      if (indexImg > 0) {
+        setIndexImg(indexImg - 1);
+      }
+    };
+
     return (
       <>
         <div className="w-full flex flex-col justify-center items-center gap-4">
-          <div className="w-full min-h-80 h-96 border-b-4 border-blackColor relative">
-            <Image
-              loading="lazy"
-              id={`project-${getProject.projectId}`}
-              src={getProject.img}
-              fill
-              alt={`thumbnail de ${getProject.title}`}
-              className="object-cover"
-            ></Image>
+          <div className="w-full min-h-80 h-96 border-b-4 border-blackColor relative ">
+            {!Array.isArray(getProject.img) ? (
+              <Image
+                loading="lazy"
+                id={`project-${getProject.slug}`}
+                src={getProject.img}
+                fill
+                alt={`thumbnail de ${getProject.title}`}
+                className="object-cover"
+              ></Image>
+            ) : (
+              <>
+                <Image
+                  loading="lazy"
+                  id={`project-${getProject.slug}`}
+                  src={getProject.img[indexImg]}
+                  fill
+                  alt={`thumbnail de ${getProject.title}`}
+                  className="object-cover"
+                ></Image>
+                <div className="absolute w-full bottom-0 flex justify-between text-blackColor hover:cursor-pointer  ">
+                  <div onClick={() => decrImage()}>
+                    {
+                      <Image
+                        loading="lazy"
+                        src={"/icones/leftArrow.webp"}
+                        width={30}
+                        height={30}
+                        alt={`thumbnail de ${getProject.title}`}
+                        className="object-cover"
+                      ></Image>
+                    }
+                  </div>
+                  <div onClick={() => incrImage(getProject.img)}>
+                    {
+                      <Image
+                        loading="lazy"
+                        src={"/icones/rightArrow.webp"}
+                        width={30}
+                        height={30}
+                        alt={`thumbnail de ${getProject.title}`}
+                        className="object-cover"
+                      ></Image>
+                    }
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </div>
 
@@ -86,7 +145,7 @@ export default async function ProjectDetails({ params }) {
               Solution
             </h2>
             <p className="text-blackColor text-center text-lg mx-3 mt-2">
-              {getProject.solution}
+              {getProject?.solution}
             </p>
           </div>
 
@@ -96,17 +155,17 @@ export default async function ProjectDetails({ params }) {
             </h2>
             <div className="w-full  mt-10 flex flex-col gap-4">
               <h3 className="text-blackColor text-xl mx-3 my-4 font-semibold ">
-                {getProject.extractTitle} :
+                {getProject?.extractTitle}
               </h3>
               <div className="pixel-thumbnails w-full bg-bgColor p-2 text-blackColor ">
-                <pre className="overflow-x-auto">{getProject.codeExtract}</pre>
+                <pre className="overflow-x-auto">{getProject?.codeExtract}</pre>
               </div>
               <div>
                 <h3 className="text-blackColor text-xl mx-3 my-4 font-semibold">
                   Explication :
                 </h3>
                 <p className="text-blackColor text-center text-lg mx-3 mt-4">
-                  {getProject.codeExplaination}
+                  {getProject?.codeExplaination}
                 </p>
               </div>
             </div>

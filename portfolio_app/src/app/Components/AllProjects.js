@@ -1,8 +1,203 @@
 "use client";
 const AllProjects = [
   {
+    title: "Mini Indeed",
+    slug: "mini-indeed",
+    description:
+      "Micro-plateforme de recherche d'emploi sous forme de mini-framework MVC en PHP",
+    solution:
+      "J'ai développé une application MVC, permettant de réaliser un CRUD complet pour la gestion de postes en mode administrateur.",
+    extractTitle:
+      "Démonstration d'une partie du processus de création de postes en tant qu'administrateur",
+    codeExplaination:
+      "J'ai créé une route permettant l'accès à un administrateur à la page de création de postes. Je vérifie d'abord que mon utilisateur est bien connecté et qu'il possède le rôle admin. Dans ma classe PosteController, je gère toute la logique liée à mes postes. La méthode create me permet de gérer la création à partir d'un formulaire que l'on va afficher en méthode HTTP GET. On va ensuite récupérer les données de ce formulaire en méthode POST. Ces données passent d'abord par un traitement avant d'être envoyées en base de données. Une fois le poste créé, l'utilisateur est renvoyé vers la page d'index.",
+    codeExtract: `Router:
+  Gestion des autorisations d'accès:
+
+        //on verifie si l'url commence par '/admin/'
+
+        if (preg_match("~^" . self::ADMIN_URL . "~", $url)) {
+
+            //on verife si l'utilisateur est connecté Et qu'il à le rôle admin
+          
+            if (empty($_SESSION['USER']) || !in_array('ROLE_ADMIN', $_SESSION['USER']['roles'])) {
+
+               //si non, on affiche un message d'erreur
+                $_SESSION['flash']['danger'] = "Vous n'avez pas accés à cette page";
+
+                //Et on redirige vers la page de connexion 
+                $response = new Response('', 403, ['location' => self::LOGIN_URL]);
+                $response->send();
+
+                return;
+            }
+        }
+            
+PosteController: 
+    Création de la route : 
+    #[Route(name: 'admin.poste.create', url: '/admin/postes/create', methods: ['GET', 'POST'])]
+     public function create(): Response
+    {
+        //On instancie le formulaire 
+        $form = new PosteForm();
+
+        //On vérifie si le formulaire a été soumis et si les données sont valides
+        if ($form->validate(['title', 'description'], $_POST)) {
+            $title = strip_tags(trim($_POST['title']));
+            $description = strip_tags(trim($_POST['description']));
+            $enabled = isset($_POST['enabled']) ? true : false;
+
+            //On envoe en BDD vers le model en instanciant un nouvel objet Poste
+
+            (new Poste)
+                ->setTitle($title)
+                ->setDescription($description)
+                ->setEnabled($enabled)
+                ->setUserId($_SESSION['USER']['id'])
+                ->create()
+            ;
+
+            //On redirigie vers la page d'index avec un message de succès
+            $this->addFlash('success', "Le poste a été créé avec succès !");
+            return $this->redirectToRoute('admin.poste.index');
+        }
+
+        //on affiche le formulaire dans dans la view 
+        return $this->render('backend/poste/create.php', ['form' => $form->createForm()]);
+    }
+
+    `,
+    technologies: ["php", "docker", "mysql"],
+    img: [
+      "/thumbnails/indeed-home.webp",
+      "/thumbnails/indeed-auth.webp",
+      "/thumbnails/indeed-admin.webp",
+      "/thumbnails/indeed-add.webp",
+    ],
+    githubLink: "https://github.com/luandaSarah/mini_framework_mvc",
+  },
+  {
+    title: "Book Store",
+    slug: "bookstore",
+    description: "Application de gestion d'une librairie en VueJS",
+    solution:
+      "A partir de requêtes à une API REST, j'ai effectué un CRUD complet me permettant, d'ajouter, modifier, supprimer et d'afficher des livres sur mon application.",
+    extractTitle: "Ajout d'un livre",
+    codeExplaination:
+      "Requête API en méthode POST pour la modification d'un livre en récupérant dynamiquement son identifiant en méthode GET. ",
+    codeExtract: `
+const getAllBooks = async () => {
+    try {
+        const response = await fetch('http://localhost:3000/books?page=1&perPage=500');
+        if (!response.ok) {
+            throw new Error('Erreur HTTP ! statut : ' + response.status);
+        }
+        const data = await response.json();
+        allBooks.value = data;
+    } catch (error) {
+        console.log('Error lors de la requête: ' + error)
+    }
+}
+
+
+
+
+
+
+onBeforeMount(async () => {
+    await getAllBooks();
+})
+
+
+const newBook = ref([])
+const title = ref('');
+const titleO = ref('');
+const aLName = ref('');
+const aFName = ref('');
+const genre = ref('');
+const recap = ref('');
+const year = ref('');
+const cover = ref('');
+
+
+
+
+const errorMessage = ref('');
+const successMessage = ref('');
+let successStatus = null;
+
+
+
+
+const createBook = async () => {
+    newBook.value = {
+        "author": {
+            "firstName": aFName.value,
+            "lastName": aLName.value
+        },
+
+
+        "title": title.value,
+        "originalTitle": titleO.value,
+        "publicationYear": year.value,
+        "genre": genre.value,
+        "coverUri": cover.value,
+        "recap": recap.value,
+    }
+    // console.log(newBook)
+    try {
+        const response = await fetch('http://localhost:3000/books', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newBook.value)
+
+
+        });
+
+
+        if (!response.ok) {
+            errorMessage.value = "Une erreur s'est produite lors de l'ajout du livre";
+            successStatus = false;
+            throw new Error("'Erreur HTTP ! statut :' + response.status);
+
+
+
+
+        }
+
+
+
+
+
+
+     
+        // console.log('Livre ajouté avec succès:', data);
+        successMessage.value = "Le livre a bien été ajouté !"
+        successStatus = true;
+    } catch (error) {
+        // console.error('Erreur lors de la requête :', error);
+        errorMessage.value = "Une erreur s'est produite lors de l'ajout du livre"
+        successStatus = false;
+
+
+    }
+
+
+}`,
+
+    technologies: ["vue", "docker"],
+    img: [
+      "/thumbnails/bookstore-home.webp",
+      "/thumbnails/bookstore-create.webp",
+      "/thumbnails/bookstore-admin.webp",
+    ],
+    githubLink: "https://github.com/luandaSarah/bookstore-project",
+  },
+  {
     title: "Spotify Clone",
-    projectId: "spotify-clone",
+    slug: "spotify-clone",
     description:
       "Clone simplifié de Spotify réalisé avec React, permettant d'afficher dynamiquement des albums, des artistes et des genres de musique grâce à une API.",
     solution:
@@ -15,7 +210,9 @@ const AllProjects = [
         const fetchAlbums= async () => {
         try {
 
+
        const res = await fetch('http://localhost:8000/albums?page=' + page + '&limit=20');
+
 
        if(!res.ok) {
         console.error('Erreur HTTP ! statut : ' + res.status);
@@ -35,6 +232,7 @@ const AllProjects = [
             console.error('Erreur lors de la requête :' + error)
         }}
 
+
         fetchAlbums();
     }, [page]);`,
 
@@ -45,7 +243,7 @@ const AllProjects = [
 
   {
     title: "Puissance 4",
-    projectId: "puissance-4",
+    slug: "puissance-4",
     description:
       "J'ai développé un jeu de Puissance 4 entièrement fonctionnel en JavaScript Vanilla, en appliquant la Programmation Orientée Objet (POO) et en manipulant directement le DOM pour une expérience interactive et dynamique",
     solution:
@@ -59,12 +257,15 @@ const AllProjects = [
     this.grid.style.display = "flex";
     this.grid.style.flexDirection = "column";
 
+
     this.board = [];
+
 
     for (let r = 0; r < this.caseX; r++) {
         let row = [];
         let rowContainer = document.createElement("div");
         rowContainer.style.display = "flex";
+
 
         for (let c = 0; c < this.caseY; c++) {
             row.push(" ");
@@ -75,9 +276,11 @@ const AllProjects = [
             rowContainer.appendChild(tile);
         }
 
+
         this.grid.appendChild(rowContainer);
         this.board.push(row);
     }
+
 
     document.body.appendChild(this.grid);
 }
@@ -90,7 +293,7 @@ const AllProjects = [
   },
   {
     title: "To Do List",
-    projectId: "to-do-list",
+    slug: "to-do-list",
     description:
       "Mini-application de gestion de tâches permettant d'ajouter, de modifier et de supprimer des tâches, avec une barre de progression interactive et une sauvegarde dans le localStorage.",
     solution:
@@ -103,9 +306,10 @@ const AllProjects = [
     return;
   }
 
+
   const taskContainer = document.createElement("div");
-  taskContainer.innerHTML = 
-    "<li>" + input.value + "</li> 
+  taskContainer.innerHTML =
+    "<li>" + input.value + "</li>
     <i class="fa-solid fa-trash delete-btn"></i>
     <i class="fa-solid fa-pen modify-btn"></i>"
   ;
@@ -113,8 +317,10 @@ const AllProjects = [
   list.prepend(taskContainer);
   input.value = "";
 
+
   const deleteBtn = taskContainer.querySelector(".delete-btn");
   const modifyBtn = taskContainer.querySelector(".modify-btn");
+
 
   handleDeleteBtn(deleteBtn);
   handleModifyBtn(modifyBtn, taskContainer);

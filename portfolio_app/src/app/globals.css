@@ -132,3 +132,7 @@ iconify-icon {
   height: 1em;
 }
 
+.swiper {
+  width: 600px;
+  height: 300px;
+}
