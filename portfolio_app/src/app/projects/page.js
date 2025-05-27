@@ -20,10 +20,14 @@ export default function Projects() {
     return (
       <div className="projectsPage  w-full py-4 lg:py-2 px-2 lg:px-10  flex flex-col md:grid md:grid-cols-5 md:grid-rows-9 mb-73px lg:mb-0 overflow-hidden gap-8 md:gap-4">
         <div className="projectTitle-container text-center text-blackColor col-start-1 col-end-6 row-start-1 row-end-2 w-full sticky md:static">
-          <h1 className=" text-3xl font-semibold   ">
-            Mes projets
-          </h1>
-          <Link href="https://github.com/luandaSarah" className="hover:text-secondaryColor">Voir plus de projets sur mon Githbub</Link>
+          <h1 className=" text-3xl font-semibold">Mes projets</h1>
+          {/* <Link
+            href="https://github.com/luandaSarah"
+            className="hover:text-secondaryColor"
+            
+          >
+            Voir plus de projets sur mon Githbub
+          </Link> */}
         </div>
 
         <div className="col-start-1 col-end-6 md:col-end-2 row-start-2  row-end-3 md:row-end-10 sticky md:static">
