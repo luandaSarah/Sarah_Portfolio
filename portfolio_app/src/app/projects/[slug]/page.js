@@ -43,8 +43,6 @@ export default function ProjectDetails() {
   };
 
   const pageFound = () => {
-   
-
     const incrImage = (img) => {
       if (indexImg < img.length - 1) {
         setIndexImg(indexImg + 1);
